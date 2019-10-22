@@ -1,10 +1,13 @@
 <script>
 
-function randNum(){
+// This function picks a random number from 0 to 3;
+function randNum(){ 
     let randomNumber = Math.floor(Math.random() * 3) + 1;
     return randomNumber;
 }
 
+
+//This function gets computer choice ('Rock', 'Paper', 'Scissors') based on the random number
 function getCopmuterChoice() {
     let compChoice = randNum();
     console.log('----------------------------');
@@ -32,7 +35,7 @@ function play(){
     console.log('Player choice: ' + playerSelection + ' ||');
     console.log('Computer choice: ' + computerSelection + ' ||')
 
-    if ( /rock/gi.test(playerSelection) ){
+    if ( /rock/gi.test(playerSelection) ){ // Used RegEx to test user input insensitively for 'rock' 
         if (computerSelection == 'Rock'){
             return (message + "Wow, That's a draw!!");
         } else if (computerSelection == 'Scissors'){
@@ -42,7 +45,7 @@ function play(){
             computerScore++;
             return (message + 'You Lose! ' +  computerSelection + ' beats ' + playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase() + ' !');
         }
-    }else if (/scissor|scissors/gi.test(playerSelection)){
+    }else if (/scissor|scissors/gi.test(playerSelection)){ //Used RegEx to test user input insensitively for 'scissor'
         if (computerSelection == 'Scissors'){
             return (message + "Wow, That's a draw!!");
         } else if (computerSelection == 'Paper'){
@@ -52,7 +55,7 @@ function play(){
             computerScore++;
             return (message + 'You Lose! ' +  computerSelection + ' beats ' + playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase() + ' !');
         }
-    }else if ( /paper/gi.test(playerSelection)){
+    }else if ( /paper/gi.test(playerSelection)){ // Used RegEx to test user input insensitively for 'paper'
         if (computerSelection == 'Paper'){
             return (message + "Wow, That's a draw!!");
         } else if (computerSelection == 'Rock'){
