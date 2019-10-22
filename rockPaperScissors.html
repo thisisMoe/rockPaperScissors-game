@@ -1,0 +1,77 @@
+<script>
+
+function randNum(){
+    let randomNumber = Math.floor(Math.random() * 3) + 1;
+    return randomNumber;
+}
+
+function copmuterPlay() {
+    let compChoice = randNum();
+    console.log(compChoice);
+    switch (compChoice) {
+        case 1:
+            return 'Rock';
+            break;
+        case 2:
+            return 'Paper';
+            break;
+        case 3:
+            return 'Scissors';
+            break;
+    }
+}
+
+let playerScore = 0;
+let computerScore = 0;
+
+function play(){
+    computerSelection = copmuterPlay();
+    playerSelection = prompt("Rock, Paper or Scissors ?", '');
+    console.log(typeof playerSelection);
+
+    console.log('playerSelection: ' + playerSelection);
+    console.log('computerSelection: ' + computerSelection)
+
+    if ( /rock/gi.test(playerSelection) ){
+        if (computerSelection == 'Rock'){
+            return ("Wow, That's a draw!!");
+        } else if (computerSelection == 'Scissors'){
+            playerScore++;
+            return ("You Win !! " + playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase() + ' beats ' + computerSelection + '!');
+        } else {
+            computerScore++;
+            return ('You Lose! ' +  computerSelection + ' beats ' + playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase() + ' !');
+        }
+    }else if (/scissor|scissors/gi.test(playerSelection)){
+        if (computerSelection == 'Scissors'){
+            return ("Wow, That's a draw!!");
+        } else if (computerSelection == 'Paper'){
+            playerScore++;
+            return ("You Win !! " + playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase() + ' beats ' + computerSelection + '!');
+        } else {
+            computerScore++;
+            return ('You Lose! ' +  computerSelection + ' beats ' + playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase() + ' !');
+        }
+    }else if ( /paper/gi.test(playerSelection)){
+        if (computerSelection == 'Paper'){
+            return ("Wow, That's a draw!!");
+        } else if (computerSelection == 'Rock'){
+            playerScore++;
+            return ("You Win !! " + playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase() + ' beats ' + computerSelection + '!');
+        } else {
+            computerScore++;
+            return ('You Lose! ' +  computerSelection + ' beats ' + playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase() + ' !');
+        }
+    }else {
+        return 'You didn\'t choose';
+    }
+
+}
+
+for (i = 0; i < 5; i ++){
+    console.log(play());
+}
+
+console.log('Player: ' + playerScore + ' | ' + 'Computer: ' + computerScore);
+
+</script>
