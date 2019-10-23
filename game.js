@@ -1,24 +1,10 @@
-// This function picks a random number from 0 to 3;
-function randNum() {
-	let randomNumber = Math.floor(Math.random() * 3) + 1;
-	return randomNumber;
-}
+// This array store computer choices
+var choices = [ 'Rock', 'Paper', 'Scissors' ];
 
-//This function gets computer choice ('Rock', 'Paper', 'Scissors') based on the random number
+// This function gets computer choice picking randomly from array;
 function getCopmuterChoice() {
-	let compChoice = randNum();
-	console.log('----------------------------');
-	switch (compChoice) {
-		case 1:
-			return 'Rock';
-			break;
-		case 2:
-			return 'Paper';
-			break;
-		case 3:
-			return 'Scissors';
-			break;
-	}
+	var compChoice = choices[Math.floor(Math.random() * choices.length)];
+	return compChoice;
 }
 
 let playerScore = 0;
@@ -26,8 +12,8 @@ let computerScore = 0;
 let message = 'Result : ';
 
 function play() {
-	computerSelection = getCopmuterChoice();
 	playerSelection = prompt('Rock, Paper or Scissors ?', '');
+	computerSelection = getCopmuterChoice();
 
 	console.log('Player choice: ' + playerSelection + ' ||');
 	console.log('Computer choice: ' + computerSelection + ' ||');
@@ -114,11 +100,13 @@ function play() {
 			);
 		}
 	} else if (playerSelection == null) {
+		console.log('------Canceled------');
 		alert('You calceled!');
-		return 'You canceled';
+		return '***You canceled';
 	} else {
+		console.log('------Canceled------');
 		alert('Choose Rock,Paper or Scissors!');
-		return 'Choose Rock,Paper or Scissors';
+		return '***Choose Rock,Paper or Scissors';
 	}
 }
 
